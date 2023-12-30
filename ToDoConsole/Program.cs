@@ -25,20 +25,21 @@ Choose an option:
                 {
                     case "1":
                         Console.Write("Enter a task to add: ");
-                        toDoList.Add(Console.ReadLine() ?? "");
+
+                        // Add task to list
+                        // Use Console.ReadLine() to get a task
+
+
+
                         break;
                     case "2":
-                        Console.Write("Enter task index to remove: ");                                                
-                        if (int.TryParse(Console.ReadLine() ?? "", out var index)
-                            && index >= 0 
-                            && index < toDoList.Count)
-                        {
-                            toDoList.RemoveAt(index);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid index!");
-                        }
+                        Console.Write("Enter task index to remove: ");
+
+                        // Remove task from list
+                        // Use Console.ReadLine() to get an index number
+
+
+
                         break;
                 }
             } while (userInput != "3");
