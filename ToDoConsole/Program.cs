@@ -18,31 +18,45 @@ namespace ToDoListConsole
 Choose an option:
 1. Add Task
 2. Remove Task
-3. Exit");
+3. Update Task
+4. Exit");
                 userInput = Console.ReadLine() ?? "";
 
                 switch (userInput)
                 {
                     case "1":
                         Console.Write("Enter a task to add: ");
-
-                        // Add task to list
-                        // Use Console.ReadLine() to get a task
-
-
-
+                        toDoList.Add(Console.ReadLine() ?? "");
                         break;
                     case "2":
                         Console.Write("Enter task index to remove: ");
-
-                        // Remove task from list
-                        // Use Console.ReadLine() to get an index number
-
-
-
+                        if (int.TryParse(Console.ReadLine() ?? "", out var index)
+                            && index >= 0
+                            && index < toDoList.Count)
+                        {
+                            toDoList.RemoveAt(index);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid index!");
+                        }
+                        break;
+                    case "3":
+                        Console.Write("Enter task index to update: ");
+                        if (int.TryParse(Console.ReadLine() ?? "", out var updateIndex)
+                            && updateIndex >= 0
+                            && updateIndex < toDoList.Count)
+                        {
+                            Console.Write("Enter new task: ");
+                            toDoList[updateIndex] = Console.ReadLine() ?? "";
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid index!");
+                        }
                         break;
                 }
-            } while (userInput != "3");
+            } while (userInput != "4");
         }
     }
 }
