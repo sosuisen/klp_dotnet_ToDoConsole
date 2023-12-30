@@ -14,10 +14,11 @@ namespace ToDoListConsole
                     Console.WriteLine("- " + item);
                 }
 
-                Console.WriteLine("\nChoose an option:");
-                Console.WriteLine("1. Add Task");
-                Console.WriteLine("2. Remove Task");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine(@"
+Choose an option:
+1. Add Task
+2. Remove Task
+3. Exit");
                 userInput = Console.ReadLine() ?? "";
 
                 switch (userInput)
