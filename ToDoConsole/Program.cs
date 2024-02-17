@@ -25,15 +25,20 @@ Choose an option:
                 {
                     case "1":
                         Console.Write("Enter a task to add: ");
-                        toDoList.Add(Console.ReadLine() ?? "");
+                        var newTask = Console.ReadLine() ?? "";
+                        // Add task to list
+                        toDoList.Add(newTask);
+
                         break;
                     case "2":
-                        Console.Write("Enter task index to remove: ");                                                
-                        if (int.TryParse(Console.ReadLine() ?? "", out var index)
-                            && index >= 0 
-                            && index < toDoList.Count)
+                        Console.Write("Enter task index to remove: ");
+                        var index = Console.ReadLine() ?? "";
+                        // Remove task from list
+                        if (int.TryParse(index, out var i)
+                            && i >= 0 
+                            && i < toDoList.Count)
                         {
-                            toDoList.RemoveAt(index);
+                            toDoList.RemoveAt(i);
                         }
                         else
                         {
